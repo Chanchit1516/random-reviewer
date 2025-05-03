@@ -43,7 +43,7 @@ export class HomeComponent {
     urlInput.control.markAsUntouched();  // Reset touched status
     urlInput.control.setErrors(null);    // Clear validation errors
 
-    const message = `Please review and approve my merge request, @${this.selectedReviewer} 👉 ${this.mergeRequestUrl}`;
+    const message = `🙏 Please review and approve my merge request, @${this.mainReviewer} @${this.selectedReviewer} 👉 ${this.mergeRequestUrl}`;
 
     // Use the Clipboard API to copy the message
     navigator.clipboard.writeText(message).then(() => {
