@@ -15,7 +15,7 @@ export class HomeComponent {
   selectedReviewer: string | null = null;
   mergeRequestUrl: string = '';
   copied: boolean = false; // To show the "Copied" message
-  urlPattern: string = '^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)\\.com(\\/.*)?$';
+  urlPattern: string = '^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-zA-Z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)$';
 
   constructor(private homeService: HomeService) { }
 
