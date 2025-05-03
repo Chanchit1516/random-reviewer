@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HomeService } from '../../services/home/home.service';
+import { Reviewer } from '../../models/home.model';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +10,31 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   title = '🎯 Web Random Reviewer';
-  reviewers = ['Alice', 'Bob', 'Charlie', 'Diana', 'Ethan'];
-  mainReviewer = "Boom";
+  reviewers: Reviewer[] = [];
+  mainReviewer = "Boom@gmail.com";
   selectedReviewer: string | null = null;
   mergeRequestUrl: string = '';
   copied: boolean = false; // To show the "Copied" message
-  urlPattern: string = '^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)\\.com$';
+  urlPattern: string = '^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)\\.com(\\/.*)?$';
+
+  constructor(private homeService: HomeService) { }
+
+  ngOnInit(): void {
+    this.getEmployees();
+  }
+
+  async getEmployees() {
+    try {
+      this.reviewers = await this.homeService.getReviewers() as Reviewer[];  // Fetch employees
+      console.log(this.reviewers);  // Log the data for debugging purposes
+    } catch (error) {
+      console.error('Error fetching employees:', error);  // Handle errors
+    }
+  }
 
   pickRandomReviewer() {
     const index = Math.floor(Math.random() * this.reviewers.length);
-    this.selectedReviewer = this.reviewers[index];
+    this.selectedReviewer = this.reviewers[index].name;
     this.copied = false; // Reset copied state when a new reviewer is selected
   }
 
