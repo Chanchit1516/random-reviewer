@@ -11,7 +11,7 @@ import { Reviewer } from '../../models/home.model';
 export class HomeComponent {
   title = '🎯 Web Random Reviewer';
   reviewers: Reviewer[] = [];
-  mainReviewer = "Boom";
+  mainReviewer = "บูม";
   selectedReviewer: string | null = null;
   mergeRequestUrl: string = '';
   copied: boolean = false; // To show the "Copied" message
