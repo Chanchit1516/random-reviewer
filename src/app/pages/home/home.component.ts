@@ -21,6 +21,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.getEmployees();
+    
   }
 
   async getEmployees() {
