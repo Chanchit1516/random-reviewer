@@ -60,3 +60,4 @@ For more information on using the Angular CLI, including detailed command refere
 
 ## Web Url
 https://random-reviewer-ea57e.web.app/home
+https://random-reviewer-ea57e.firebaseapp.com/home
