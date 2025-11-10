@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    </div>
+                </div>
+                <div class="row mt-1 ms-5">
+                    <div class="col-sm ">
+                        <ul style="padding-left: unset;">
+                            <li class="list-group-item">
+                                <div class="row mt-3">
+                                    <div class="col-sm-3 condition">
+                                        <div class="row">
+                                            <div class="condition-left text-center d-flex justify-content-center align-items-center"
+                                                [class.active]="selectedCondition === 'AND'"
+                                                (click)="selectCondition('AND')">
+                                                AND
+                                            </div>
+                                            <div class="condition-right text-center d-flex justify-content-center align-items-center"
+                                                [class.active]="selectedCondition === 'OR'"
+                                                (click)="selectCondition('OR')">
+                                                OR
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button class="btn btn-outline-primary" (click)="addCondition()">Add Condition</button>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <button class="btn btn-outline-primary" (click)="removeCondition()">Remove Condition</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item mt-3">
+                                <div class="row">
+                                    <div class="card" style="width: 100%;">
+                                        <div class="card-body" style="padding-left: 30px; padding-right: 30px;">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <label class="form-label">Group 1</label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label">Group 2</label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label">Group 3</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3"
+                                                *ngFor="let count of [].constructor(inputCounter); let i = index">
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" placeholder="Field"
+                                                        aria-label="Field">
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" placeholder="Field"
+                                                        aria-label="Field">
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control" placeholder="Field"
+                                                        aria-label="Field">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

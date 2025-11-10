@@ -12,6 +12,10 @@ export const routes: Routes = [
                 loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
             },
             {
+                path: 'custom',
+                loadChildren: () => import('./pages/custom/custom.module').then(m => m.CustomModule)
+            },
+            {
                 path: '**',
                 redirectTo: "home"
             }
